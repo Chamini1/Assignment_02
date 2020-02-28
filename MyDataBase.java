@@ -74,10 +74,10 @@ public class MyDataBase extends SQLiteOpenHelper {
         return res;
     }
 
-    public Cursor getAll(){
+    public Cursor searchData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor rs = db.rawQuery("select * from "+STUDENT_TABLE,null);
-        return  rs;
+        Cursor res = db.rawQuery("SELECT * FROM " + STUDENT_TABLE + " WHERE " + STUDENT_NAME + " = " + name + ";", null);
+        return res;
     }
 
 
